@@ -1,37 +1,55 @@
 ---
-title: LOTTY A/B Platform
-description: Documentation for the LOTTY A/B testing platform implementation.
+title: PROD 2026. Индивидуальный этап
+description: Документация для реализации платформы LOTTY A/B тестирования.
 template: splash
 hero:
-  tagline: A robust backend solution for feature flags, experiments, and data-driven decisions.
+  tagline: Попытка разобрать ТЗ в более мелкое и детальное описание каждого критерия оценивания.
   image:
-    file: ../../assets/houston.webp
+    file: ../../assets/main.png
   actions:
-    - text: Read the Spec
-      link: /explained/01_context/
+    - text: С чего начать?
+      link: /quick-start/
       icon: right-arrow
       variant: primary
-    - text: Implementation Plan
-      link: /explained/implementation_plan/
+    - text: Словарь терминов
+      link: /glossary/
+      icon: right-arrow
+      variant: secondary
+    - text: Академическая честность
+      link: /fairness/
       icon: right-arrow
       variant: secondary
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Documentation Overview
+## FAQ
 
 <CardGrid stagger>
-	<Card title="Context & Goals" icon="information">
-		Understand the [story of Lotty](/explained/01_context/) and why this platform is being built.
+  <Card title="Апдейты задания" icon="list-format">
+    ## История обновлений
+    
+    ⚠️ Задание может обновляться по ходу тура. Все апдейты будут фиксироваться в этом README.
+    
+    _Пока обновлений нет_
 	</Card>
-	<Card title="Core Architecture" icon="puzzle">
-		Dive into [Feature Flags](/explained/03_feature_flags/), [Experiments](/explained/04_experiments/), and the critical [Decision API](/explained/05_runtime_decide/).
+  <Card title="Что фиксируется как решение" icon="information">
+    Проверяется состояние последнего коммита в ветке `main` на момент дедлайна. 
 	</Card>
-	<Card title="Data & Safety" icon="rocket">
-		Learn about [Event Ingestion](/explained/06_events/), [Reporting](/explained/07_reports/), and automated [Guardrails](/explained/08_guardrails/).
-	</Card>
-	<Card title="Deliverables" icon="list-format">
-		Check the [Evaluation Criteria](/explained/criteria/) and required [Deliverables](/explained/14_deliverables/) for the contest.
+	<Card title="Технические требования" icon="rocket">
+	  Технические ограничения окружения где будет выполняться сборка и запуск решения
+
+    | Параметр | Лимит |
+    |----------|-------|
+    | Время старта | < 180 секунд до готовности /ready |
+    | Память | < 8 GB |
+    | CPU | 4 ядра |
+    | Размер Docker-образа | < 4 GB |
+    | Сеть | Нет доступа в интернет при запуске и проверке | 
+
+    Технические требования к решению:
+
+    * Приложение должно запускаться командой `docker compose up -d` в корне репозитория.
+    * Приложение слушает только порт `80`, все сервисы общаются между собой через docker-сеть (локально).
 	</Card>
 </CardGrid>
