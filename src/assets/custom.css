@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+/* ===< ПЕРЕМЕННЫЕ И ТЕМА >=== */
+:root {
+  --prod-green-dark: #022a1c;
+  --prod-green-base: #043a27;
+  --prod-green-light: #064e3b;
+  --prod-yellow: #fde047;
+  --prod-yellow-hover: #facc15;
+  --prod-text-main: #f8fafc;
+  --prod-text-muted: #cbd5e1;
+  --prod-dot-color: rgba(253, 224, 71, 0.15);
+}
+
+:root[data-theme='light'] {
+  --prod-green-dark: #e2e8f0;
+  --prod-green-base: #f8fafc;
+  --prod-green-light: #cbd5e1;
+  --prod-yellow: #043a27;
+  --prod-yellow-hover: #022a1c;
+  --prod-text-main: #022a1c;
+  --prod-text-muted: #334155;
+  --prod-dot-color: rgba(4, 58, 39, 0.1);
+}
+
+/* ===< ПЕРЕОПРЕДЕЛЕНИЕ STARLIGHT >=== */
+:root {
+  --sl-color-bg: var(--prod-green-base) !important;
+  --sl-color-bg-nav: var(--prod-green-dark) !important;
+  --sl-color-bg-sidebar: var(--prod-green-dark) !important;
+  --sl-color-bg-inline-code: var(--prod-green-light) !important;
+  
+  --sl-color-accent: var(--prod-yellow) !important;
+  --sl-color-accent-high: var(--prod-yellow-hover) !important;
+  --sl-color-accent-low: var(--prod-green-light) !important;
+  --sl-color-text-accent: var(--prod-yellow) !important;
+  --sl-color-bg-accent: var(--prod-yellow) !important;
+  
+  --sl-color-white: var(--prod-text-main) !important;
+  --sl-color-gray-1: var(--prod-text-main) !important;
+  --sl-color-gray-2: var(--prod-text-muted) !important;
+  --sl-color-text: var(--prod-text-muted) !important;
+  
+  --sl-color-hairline: var(--prod-green-light) !important;
+  
+  --sl-font-headers: 'Inter', system-ui, sans-serif;
+  --sl-font-body: 'Inter', system-ui, sans-serif;
+  --sl-font-mono: 'JetBrains Mono', monospace !important;
+}
+
+/* ===< БАЗОВЫЕ СТИЛИ >=== */
+body {
+  background-image: radial-gradient(var(--prod-dot-color) 1px, transparent 1px) !important;
+  background-size: 32px 32px !important;
+  background-attachment: fixed !important;
+}
+
+/* ===< НАВИГАЦИЯ (SIDEBAR) >=== */
+.sidebar-pane {
+  background-color: var(--prod-green-dark) !important;
+  border-inline-end: 1px solid var(--prod-green-light) !important;
+}
+
+.sidebar-pane a {
+  padding-inline: 0.75rem !important;
+  transition: all 0.2s ease !important;
+}
+
+.sidebar-pane a::before {
+  content: '[';
+  color: var(--prod-green-light);
+  margin-right: 6px;
+  font-family: var(--sl-font-mono);
+  opacity: 0.3;
+  transition: all 0.2s ease;
+}
+
+.sidebar-pane a::after {
+  content: ']';
+  color: var(--prod-green-light);
+  margin-left: 6px;
+  font-family: var(--sl-font-mono);
+  opacity: 0.3;
+  transition: all 0.2s ease;
+}
+
+.sidebar-pane a:hover::before,
+.sidebar-pane a:hover::after,
+.sidebar-pane a[aria-current="page"]::before,
+.sidebar-pane a[aria-current="page"]::after {
+  color: var(--prod-yellow) !important;
+  opacity: 1 !important;
+}
+
+.sidebar-pane a[aria-current="page"] {
+  background-color: var(--prod-green-light) !important;
+  color: var(--prod-yellow) !important;
+  border-radius: 8px !important;
+}
+
+/* ===< КОНТЕНТ >=== */
+.content-panel h1, .content-panel h2, .content-panel h3 {
+  color: var(--sl-color-white) !important;
+}
+
+/* ===< КОД >=== */
+code, pre, kbd, .sl-font-mono {
+  font-family: var(--sl-font-mono) !important;
+}
+
+code {
+  color: var(--prod-yellow) !important;
+  background-color: var(--prod-green-light) !important;
+  border: 1px solid rgba(253, 224, 71, 0.2) !important;
+  padding: 0.15em 0.3em !important;
+  border-radius: 6px !important;
+  white-space: nowrap !important;
+}
+
+pre code {
+  white-space: pre !important;
+}
+
+pre {
+  background-color: var(--prod-green-dark) !important;
+  border: 1px solid var(--prod-green-light) !important;
+}
+
+/* ===< ТАБЛИЦЫ >=== */
+table {
+  background: rgba(2, 42, 28, 0.2) !important;
+}
+:root[data-theme='light'] table {
+  background: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* ===< КАРТОЧКИ >=== */
+:global(.sl-card), :global(.card) {
+  background: var(--prod-green-dark) !important;
+  border: 1px solid var(--prod-green-light) !important;
+  color: var(--prod-text-muted) !important;
+  border-radius: 16px !important;
+  padding: 1.5rem !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  margin: 0 !important;
+}
+
+:global(.sl-card:hover), :global(.card:hover) {
+  transform: translateY(-8px) !important;
+  border-color: var(--prod-yellow) !important;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3) !important;
+}
+
+:global(.sl-card .icon), :global(.card .icon) {
+  color: var(--prod-yellow) !important;
+  background-color: var(--prod-green-light) !important;
+  padding: 0.6rem !important;
+  border-radius: 12px !important;
+  flex-shrink: 0 !important;
+}
+
+:global(.sl-card p.title), :global(.card p.title), :global(.card .title) {
+  color: var(--prod-text-main) !important;
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  margin-top: 1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+}
+
+/* ===< ЗАМЕТКИ (ASIDES) >=== */
+:global(.starlight-aside) {
+  background-color: var(--prod-green-dark) !important;
+  border: 1px solid var(--prod-green-light) !important;
+  border-left-width: 4px !important;
+  border-radius: 8px !important;
+}
+
+:global(.starlight-aside__title) {
+  color: var(--prod-yellow) !important;
+  font-weight: 700 !important;
+}
+
+/* ===< ГЛАВНАЯ СТРАНИЦА (HERO) >=== */
+.hero {
+  display: grid !important;
+  grid-template-columns: 1.2fr 0.8fr !important;
+  gap: 2rem !important;
+  align-items: center !important;
+  text-align: left !important;
+  padding: 4rem 0 !important;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 8vw, 5.5rem) !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.03em !important;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem !important;
+  color: var(--prod-text-main) !important;
+  white-space: pre-wrap !important;
+}
+
+.hero .tagline {
+  color: var(--prod-text-muted) !important;
+  font-size: 1.25rem !important;
+  max-width: 50ch !important;
+  line-height: 1.5 !important;
+}
+
+.hero img {
+  filter: drop-shadow(0 0 60px rgba(253, 224, 71, 0.15));
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  width: 100% !important;
+  height: auto !important;
+  max-width: 500px !important;
+  object-fit: contain !important;
+}
+
+/* ===< ССЫЛКИ >=== */
+.content-panel a:not(.sl-card a):not(.card a):not(.sl-link-button) {
+  color: var(--prod-yellow) !important;
+  text-decoration: none !important;
+  transition: opacity 0.2s;
+}
+
+.content-panel a:not(.sl-card a):not(.card a):not(.sl-link-button):hover {
+  text-decoration: underline !important;
+  opacity: 0.9;
+}
+
+/* ===< КНОПКИ И БЕЙДЖИ >=== */
+.sl-link-button {
+  border-radius: 999px !important;
+}
+
+.sl-link-button.primary {
+  background-color: var(--prod-yellow) !important;
+  color: var(--prod-green-dark) !important;
+  font-weight: 700 !important;
+}
+
+.sl-badge {
+  background-color: var(--prod-green-dark) !important;
+  color: var(--prod-yellow) !important;
+  border: 1px solid var(--prod-green-light) !important;
+  border-radius: 6px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  font-size: 0.7rem !important;
+}
+
+/* ===< ПРОЧЕЕ >=== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--prod-green-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--prod-green-light);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--prod-yellow);
+}
+
+/* ===< ДИАГРАММЫ (MERMAID) >=== */
+.mermaid {
+  background: var(--prod-green-dark) !important;
+  padding: 1.5rem !important;
+  border-radius: 16px !important;
+  border: 1px solid var(--prod-green-light) !important;
+  margin: 2rem 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  overflow-x: auto !important;
+}
+
+:root[data-theme='light'] .mermaid {
+  background: var(--prod-green-base) !important;
+}
+
+:global(.mermaid svg) {
+  font-family: var(--sl-font-mono) !important;
+}
+
+:global(.mermaid .node rect),
+:global(.mermaid .node circle),
+:global(.mermaid .node polygon),
+:global(.mermaid .node path),
+:global(.mermaid .node elipse) {
+  fill: var(--prod-green-light) !important;
+  stroke: var(--prod-yellow) !important;
+  stroke-width: 2px !important;
+}
+
+:global(.mermaid .nodeLabel),
+:global(.mermaid .edgeLabel),
+:global(.mermaid .labelText),
+:global(.mermaid tspan) {
+  fill: var(--prod-text-main) !important;
+  color: var(--prod-text-main) !important;
+  font-family: var(--sl-font-mono) !important;
+  font-size: 14px !important;
+}
+
+:global(.mermaid .edgePath .path) {
+  stroke: var(--prod-yellow) !important;
+  stroke-width: 2px !important;
+}
+
+:global(.mermaid .marker) {
+  fill: var(--prod-yellow) !important;
+  stroke: var(--prod-yellow) !important;
+}
+
+:global(.mermaid .cluster rect) {
+  fill: var(--prod-green-base) !important;
+  stroke: var(--prod-green-light) !important;
+  stroke-width: 1px !important;
+}
+
+@media (max-width: 50rem) {
+  .hero {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+  }
+  :global(.sl-card-grid), :global(.card-grid) {
+    grid-template-columns: 1fr !important;
+  }
+}
