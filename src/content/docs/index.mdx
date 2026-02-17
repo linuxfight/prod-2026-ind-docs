@@ -36,6 +36,12 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
   <Card title="Что фиксируется как решение" icon="information">
     Проверяется состояние последнего коммита в ветке `main` на момент дедлайна. 
 	</Card>
+  <Card title="Критические требования" icon="warning">
+
+    * Корректная работа эндпоинтов `/health` и `/ready`
+    * Успешная сборка `Dockerfile`
+    * Успешный запуск через `docker compose` (все ваши сервисы должны быть внутри)
+  </Card>
 	<Card title="Технические требования" icon="rocket">
 	  Технические ограничения окружения где будет выполняться сборка и запуск решения
 

@@ -1,10 +1,12 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
+import mermaid from "astro-mermaid";
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [
+    mermaid(),
     starlight({
       title: "LOTTY A/B Platform",
       sidebar: [
@@ -54,6 +56,9 @@ export default defineConfig({
           ],
         },
       ],
-    }),
+      customCss: [
+        './src/assets/custom.css'
+      ],
+    },),
   ],
 });
